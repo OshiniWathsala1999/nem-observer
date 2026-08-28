@@ -1,21 +1,29 @@
 {
   "name": "nem-observer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Ingestion and query service for Australia's National Electricity Market",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "migrate": "node-pg-migrate -m migrations",
+    "db:up": "npm run migrate up",
+    "db:down": "npm run migrate down",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [],
-  "author": "",
+  "author": "Oshini Wathsala",
   "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
     "@types/node": "^26.4.0",
+    "@types/pg": "^8.23.1",
     "eslint": "^10.9.1",
+    "node-pg-migrate": "^9.0.0",
     "prettier": "^3.9.6",
     "tsx": "^4.23.12",
     "typescript": "^7.0.2",
     "vitest": "^4.1.11"
+  },
+  "dependencies": {
+    "pg": "^8.23.0"
   }
 }
